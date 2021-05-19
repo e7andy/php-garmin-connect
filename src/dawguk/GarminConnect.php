@@ -588,4 +588,17 @@ class GarminConnect
         return $objResponse;
     }
 
+    /**
+     * @param string $strFileName
+     * @return mixed
+     * @throws UnexpectedResponseCodeException
+     */
+    public function getRawFile($strFileName)
+    {
+        $strResponse = $this->objConnector->get($strFileName);
+        if ($this->objConnector->getLastResponseCode() != 200) {
+            throw new UnexpectedResponseCodeException($this->objConnector->getLastResponseCode());
+        }
+        return $strResponse;
+    }
 }
