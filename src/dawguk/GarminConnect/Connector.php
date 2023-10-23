@@ -164,6 +164,7 @@ class Connector
 
         curl_setopt($this->objCurl, CURLOPT_HTTPHEADER, array(
             'NK: NT',
+            'di-backend': 'connectapi.garmin.com',
             'X-HTTP-Method-Override: DELETE'
         ));
 
